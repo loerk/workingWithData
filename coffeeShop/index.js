@@ -8,13 +8,10 @@ class CoffeeShop {
 	}
 
 	addOrder(item) {
-		if (this.menu.find(el => el.name === item)) {
-			console.log(`${item} added to your orders`)
-			this.menu.map((el, index) => {
-				if (el.name === item) {
-					this.orders.push(this.menu[index])
-				}
-			})
+		let availableItem = this.menu.find(el => el.name === item)
+		if (availableItem) {
+			console.log(`${item} has been added to your orders`)
+			this.orders.push(availableItem)
 		} else {
 			console.log(`${item} is currently unavailable`)
 		}
