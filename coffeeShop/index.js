@@ -35,8 +35,8 @@ class CoffeeShop {
 			let list = []
 			for (let order of this.orders) {
 				list.push(order.name)
-			} 
-			console.log(`This is you order: ${list}`)
+			}
+			console.log(`This is you order: ${list.join(', ')}`)
 		} else {
 			console.log(this.orders)
 		}
@@ -50,15 +50,21 @@ class CoffeeShop {
 
 	cheapestItem() {
 		this.menu.sort((a, b) => a.price - b.price)
-		console.log(this.menu[0])
+		console.log(`This is the cheapest item we offer: `, this.menu[0].name)
 	}
 
 	drinksOnly() {
-		return this.menu.filter(item => item.type === 'drink')
+		let drinksItemList = []
+		this.menu.filter(item => item.type === 'drink')
+			.forEach(item => drinksItemList.push(item.name))
+		return `These are the drink we offer: ${drinksItemList.join(', ')}`
 	}
 
 	foodOnly() {
-		return this.menu.filter(item => item.type === 'food')
+		let foodItemList = []
+		this.menu.filter(item => item.type === 'food')
+			.forEach(item => foodItemList.push(item.name))
+		return `These are the food we offer: ${foodItemList.join(', ')}`
 	}
 
 
@@ -114,5 +120,5 @@ thisShop.fulfillOrder()
 thisShop.fulfillOrder()
 thisShop.listOrders()
 thisShop.cheapestItem()
-thisShop.drinksOnly()
+console.log(thisShop.drinksOnly())
 console.log(thisShop.foodOnly())
