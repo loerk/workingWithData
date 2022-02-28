@@ -11,19 +11,20 @@ class CoffeeShop {
 		let availableItem = this.menu.find(el => el.name === item)
 		if (availableItem) {
 			console.log(`${item} has been added to your orders`)
-			this.orders.push(availableItem)
+			return this.orders.push(availableItem)
 		} else {
 			console.log(`${item} is currently unavailable`)
 		}
+		return this.orders
 	}
 
 
 	fulfillOrder() {
 		if (this.orders.length > 0) {
 			console.log(`Your ${this.orders[0].name} is ready`)
-			this.orders.shift(this.orders[0])
+			this.orders.shift()
 		} else {
-			console.log('all orders have been fulfilled')
+			console.log('All your orders have been fulfilled')
 		}
 	}
 
@@ -35,7 +36,7 @@ class CoffeeShop {
 			}
 			console.log(`This is you order: ${list.join(', ')}`)
 		} else {
-			console.log(this.orders)
+			console.log('You dont have any orders left')
 		}
 	}
 
@@ -70,32 +71,32 @@ class CoffeeShop {
 
 const menu1 =
 	[{
-		name: 'coffee',
+		name: 'Coffee',
 		type: 'drink',
 		price: 2.50,
 	},
 	{
-		name: 'black tea',
+		name: 'Black Tea',
 		type: 'drink',
 		price: 2.55,
 	},
 	{
-		name: 'hot chocolate',
+		name: 'Hot Chocolate',
 		type: 'drink',
 		price: 3.99,
 	},
 	{
-		name: 'cinnamon roll',
+		name: 'Cinnamon Roll',
 		type: 'food',
 		price: 4.15,
 	},
 	{
-		name: 'croissant',
+		name: 'Croissant',
 		type: 'food',
 		price: 1.55,
 	},
 	{
-		name: 'vegan bagel',
+		name: 'Vegan Bagel',
 		type: 'food',
 		price: 2.5,
 	}]
