@@ -55,14 +55,14 @@ class CoffeeShop {
 		let drinksItemList = []
 		this.menu.filter(item => item.type === 'drink')
 			.forEach(item => drinksItemList.push(item.name))
-		return `These are the drink we offer: ${drinksItemList.join(', ')}`
+		return `These are the drinks we offer: ${drinksItemList.join(', ')}`
 	}
 
 	foodOnly() {
 		let foodItemList = []
 		this.menu.filter(item => item.type === 'food')
 			.forEach(item => foodItemList.push(item.name))
-		return `These are the food we offer: ${foodItemList.join(', ')}`
+		return `These is the food we offer: ${foodItemList.join(', ')}`
 	}
 
 
