@@ -12,9 +12,18 @@ class Game {
     newRound() {
         this.guessedLetters = []
         this.amountOfWrongGuesses = 0
-        this.runGame = true
     }
 
+
+    getRandomWord() {
+        let books = ['Harry Potter', 'Assembly', 'Second Place', 'A Shock']
+        let movies = ['Memento', 'Titanic', 'Snowpiercer', 'Inception', 'Pi']
+        if (this.category === 'b') {
+            return books[Math.floor(Math.random() * books.length)]
+        } else {
+            return movies[Math.floor(Math.random() * movies.length)]
+        }
+    }
 
     getEncryptedSecretWord() {
         return this.secretWord.split('').map((letter) => {
