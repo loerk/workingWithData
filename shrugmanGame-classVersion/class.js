@@ -49,7 +49,7 @@ class Game {
     }
 
     didUserWin() {
-        if (this.secretWord.toLowerCase().split('').every(letter => this.guessedLetters.includes(letter))) {
+        if (this.secretWord.replace(/\s/g, "").toLowerCase().split('').every(letter => this.guessedLetters.includes(letter))) {
             this.result.push({ name: this.secretWord, status: 'won' })
             return true
         }
